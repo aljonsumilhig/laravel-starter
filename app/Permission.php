@@ -2,15 +2,14 @@
 
 namespace App;
 
-use App\Traits\HasBinaryUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model
 {
-    use HasBinaryUuid;
-
-    public $incrementing = false;
-    protected $keyType = 'string';
-
     protected $fillable = ['title'];
+
+    public static function findByTitle(string $title)
+    {
+        return static::where('title', $title)->first();
+    }
 }

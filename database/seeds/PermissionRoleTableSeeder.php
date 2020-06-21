@@ -14,6 +14,6 @@
         public function run()
         {
             $permissions = Permission::all();
-            Role::orderBy('title', 'desc')->first()->permissions()->sync($permissions->pluck('id'));
+            Role::find(9)->permissions()->sync($permissions->pluck('id'));
         }
     }
